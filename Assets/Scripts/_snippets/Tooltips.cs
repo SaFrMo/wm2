@@ -123,7 +123,7 @@ namespace SaFrLib {
 					// Create Canvas and EventSystem if none exists yet
 					c = new GameObject("Canvas (Created by Tooltips.cs)", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster)).GetComponent<Canvas>();
 					c.renderMode = RenderMode.ScreenSpaceOverlay;
-					GameObject g = new GameObject("Event System (Created by Tooltips.cs)", typeof(EventSystem), typeof(StandaloneInputModule));
+					new GameObject("Event System (Created by Tooltips.cs)", typeof(EventSystem), typeof(StandaloneInputModule));
 				}
 				parent = c.GetComponent<RectTransform>();
 			}

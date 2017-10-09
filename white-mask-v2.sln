@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "white-mask-v2", "Assembly-CSharp-firstpass.csproj", "{61456B4B-AF2F-5A2F-8590-3BD3FE1278DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "white-mask-v2", "Assembly-CSharp.csproj", "{A993D454-7783-437A-FAE9-525435B10CEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61456B4B-AF2F-5A2F-8590-3BD3FE1278DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61456B4B-AF2F-5A2F-8590-3BD3FE1278DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61456B4B-AF2F-5A2F-8590-3BD3FE1278DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61456B4B-AF2F-5A2F-8590-3BD3FE1278DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A993D454-7783-437A-FAE9-525435B10CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A993D454-7783-437A-FAE9-525435B10CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A993D454-7783-437A-FAE9-525435B10CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A993D454-7783-437A-FAE9-525435B10CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
