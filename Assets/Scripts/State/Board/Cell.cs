@@ -15,11 +15,18 @@ namespace WhiteMask {
 
 		public float x = 0;
 		public float y = 0f;
+		public string id = "0";
+		public string name = "Default Cell";
 
 		public Cell(){
 
 			//CreateSnapshot ();
 
+		}
+
+		public Cell(string id, string name) {
+			this.id = id;
+			this.name = name;
 		}
 
 		public string CreateSnapshot(){

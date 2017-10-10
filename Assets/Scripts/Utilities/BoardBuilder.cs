@@ -9,6 +9,7 @@ namespace WhiteMask {
 
 		private Board board;
 		public Board.BoardState currentBoardState;
+		public Cell currentCell;
 
 		void Start(){
 			board = FindObjectOfType<State> ().board;
@@ -16,22 +17,61 @@ namespace WhiteMask {
 			// UI
 			currentBoardState = board.currentState;
 			currentStateId.text = currentBoardState.id;
-			allBoardStates.Setup<Board.BoardState> (
-				board.boardStates.ToArray(),
-				(button, boardState) => {
-					RefreshStateButton (button, boardState);
-				}
-			);
+			RefreshBuilder ();
 		}
 
 		public void AddCell(){
-			
+			AddCell ("0");
+		}
+
+		public Cell AddCell(string id, string name = "New Cell") {
+			// Make sure our ID is unique
+			while (board.cells.FindAll (x => x.id == id).Count > 0) {
+				id = SaFrMo.GenerateRandomString ();
+			}
+			Cell newCell = new Cell (id, name);
+			board.cells.Add (newCell);
+			RefreshBuilder ();
+			return newCell;
+
+		}
+
+		public void AddState(){
+			AddState ("0");
+		}
+
+		public Board.BoardState AddState(string id, string name = "New State") {
+			// Make sure our ID is unique
+			while (board.boardStates.FindAll (x => x.id == id).Count > 0) {
+				id = SaFrMo.GenerateRandomString ();
+			}
+			Board.BoardState newState = new Board.BoardState (id, name);
+			board.boardStates.Add (newState);
+			RefreshBuilder ();
+			return newState;
 		}
 
 
 		// UI
 		public Text currentStateId;
 		public MenuRefresher allBoardStates;
+		public MenuRefresher allCells;
+
+		public void RefreshBuilder(){
+			allBoardStates.Setup<Board.BoardState> (
+				board.boardStates.ToArray(),
+				(button, boardState) => {
+					RefreshStateButton (button, boardState);
+				}
+			);
+
+			allCells.Setup<Cell> (
+				board.cells.ToArray(),
+				(button, cell) => {
+					RefreshCellButton (button, cell);
+				}
+			);
+		}
 
 		private void RefreshStateButton(GameObject button, Board.BoardState boardState){
 			Button b = button.GetComponent<Button> ();
@@ -43,6 +83,17 @@ namespace WhiteMask {
 			});
 
 			t.text = boardState.id;
+		}
+
+		private void RefreshCellButton(GameObject button, Cell cell) {
+			Button b = button.GetComponent<Button> ();
+			Text t = button.GetComponentInChildren<Text> ();
+
+			b.onClick.AddListener (() => {
+				currentCell = board.GetCellById(cell.id);
+			});
+
+			t.text = cell.id;
 		}
 
 

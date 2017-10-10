@@ -17,7 +17,6 @@ namespace WhiteMask {
 
 		public Board(){
 			boardStates.Add (new BoardState ());
-			boardStates.Add(new BoardState("Number 2", "I'm the second state"));
 			currentState = boardStates [0];
 		}
 
@@ -36,6 +35,10 @@ namespace WhiteMask {
 
 		public BoardState GetStateById(string id){
 			return boardStates.FirstOrDefault<BoardState> (x => x.id == id);
+		}
+
+		public Cell GetCellById(string id){
+			return cells.FirstOrDefault<Cell> (x => x.id == id);
 		}
 
 //		const string 

@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/State/Board/Board.cs">
+    <Files>
+      <File FileName="Assets/Scripts/State/Board/Cell.cs" Line="25" Column="16" />
+      <File FileName="Assets/Scripts/State/Board/Board.cs" Line="20" Column="69" />
+      <File FileName="Assets/Scripts/Utilities/BoardBuilder.cs" Line="33" Column="14" />
+      <File FileName="Assets/Scripts/State/State.cs" Line="19" Column="61" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
