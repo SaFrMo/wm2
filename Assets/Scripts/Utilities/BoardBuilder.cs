@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using SaFrLib;
+using System.Linq;
 
-namespace WhiteMask {
+namespace WhiteMask.Builder {
 	public class BoardBuilder : MonoBehaviour {
 
 		private Board board;
@@ -51,13 +52,30 @@ namespace WhiteMask {
 			return newState;
 		}
 
+		// Builders
+		public MenuRefresher cellActors;
 
 		// UI
 		public Text currentStateId;
 		public MenuRefresher allBoardStates;
 		public MenuRefresher allCells;
 
+		// Grid
+		public GridLayoutGroup boardGrid;
+		public float gridWidth = 3f, gridHeight = 3f;
+		public void ChangeRows(float delta){
+			gridHeight += delta;
+			gridHeight = Mathf.Clamp (gridHeight, 0, 10f);
+			RefreshBuilder ();
+		}
+		public void ChangeColumns(float delta){
+			gridWidth += delta;
+			gridWidth = Mathf.Clamp (gridWidth, 0, 10f);
+			RefreshBuilder ();
+		}
+
 		public void RefreshBuilder(){
+			// Refresh board state selectors
 			allBoardStates.Setup<Board.BoardState> (
 				board.boardStates.ToArray(),
 				(button, boardState) => {
@@ -65,10 +83,23 @@ namespace WhiteMask {
 				}
 			);
 
+			// Refresh grid size
+			RectTransform boardRect = (RectTransform)boardGrid.transform;
+			boardGrid.cellSize = new Vector2(boardRect.sizeDelta.x / gridWidth, boardRect.sizeDelta.y / gridHeight);
+
+			// Refresh cell selectors
 			allCells.Setup<Cell> (
 				board.cells.ToArray(),
 				(button, cell) => {
 					RefreshCellButton (button, cell);
+				}
+			);
+
+			// Make sure each cell has a GameObject
+			cellActors.Setup<Cell> (
+				board.cells.ToArray (),
+				(createdObject, originalCell) => {
+
 				}
 			);
 		}

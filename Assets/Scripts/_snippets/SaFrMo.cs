@@ -322,6 +322,21 @@ namespace SaFrLib {
 		public static bool CloseEnough2d(Vector2 a, Vector2 b, float closeEnough = 0.01f) {
 			return Vector2.Distance(a, b) <= closeEnough;
 		}
+
+		/// <summary>
+		/// Rounds to the closer of two floats. Rounds up at the midpoint.
+		/// </summary>
+		/// <returns>The to closer.</returns>
+		/// <param name="original">Original.</param>
+		/// <param name="min">Minimum.</param>
+		/// <param name="max">Max.</param>
+		public static float RoundToCloser(float original, float min, float max){
+			if (Mathf.Abs (min - original) < Mathf.Abs (max - original)) {
+				return min;
+			} else {
+				return max;
+			}
+		}
 		
 		// ===================
 		/* WIP BELOW */
