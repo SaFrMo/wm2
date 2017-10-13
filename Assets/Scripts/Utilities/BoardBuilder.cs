@@ -61,16 +61,18 @@ namespace WhiteMask.Builder {
 		public MenuRefresher allCells;
 
 		// Grid
-		public GridLayoutGroup boardGrid;
-		public float gridWidth = 3f, gridHeight = 3f;
-		public void ChangeRows(float delta){
+		//public GridLayoutGroup boardGrid;
+		public MenuRefresher boardRows, boardColumns;
+		public Cell[][] displayArray;
+		public int gridWidth = 3, gridHeight = 4;
+		public void ChangeRows(int delta){
 			gridHeight += delta;
-			gridHeight = Mathf.Clamp (gridHeight, 0, 10f);
+			gridHeight = Mathf.Clamp (gridHeight, 0, 10);
 			RefreshBuilder ();
 		}
-		public void ChangeColumns(float delta){
+		public void ChangeColumns(int delta){
 			gridWidth += delta;
-			gridWidth = Mathf.Clamp (gridWidth, 0, 10f);
+			gridWidth = Mathf.Clamp (gridWidth, 0, 10);
 			RefreshBuilder ();
 		}
 
@@ -84,8 +86,27 @@ namespace WhiteMask.Builder {
 			);
 
 			// Refresh grid size
-			RectTransform boardRect = (RectTransform)boardGrid.transform;
-			boardGrid.cellSize = new Vector2(boardRect.sizeDelta.x / gridWidth, boardRect.sizeDelta.y / gridHeight);
+			displayArray = new Cell[gridHeight][];
+			for (int i = 0; i < gridHeight; i++) {
+				displayArray [i] = new Cell[gridWidth];
+
+				for (int j = 0; j < gridWidth; j++) {
+					// TODO: Keep running list of cells and populate from there
+					displayArray [i] [j] = new Cell (SaFrMo.GenerateRandomString(), "Cell " + i + j);
+				}
+			}
+			print (displayArray);
+			boardRows.Setup<Cell[]> (
+				displayArray,
+				(row, cells) => {
+					row.GetComponent<MenuRefresher> ().Setup<Cell> (
+						cells,
+						(button, cell) => {
+							button.GetComponentInChildren<Text>().text = "ID: " + cell.id + "\nName: " + cell.name;
+						}
+					);
+				}
+			);
 
 			// Refresh cell selectors
 			allCells.Setup<Cell> (
