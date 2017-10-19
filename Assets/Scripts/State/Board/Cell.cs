@@ -24,7 +24,9 @@ namespace WhiteMask {
 			SOUTHEAST = "SE";
 
 		public float x = 0;
-		public float y = 0f;
+		public float y = 0;
+		public float width = 0;
+		public float height = 0;
 		public string id = "0";
 		public string name = "Default Cell";
 		public List<string> directions = new List<string> (){ NORTHWEST, NORTH, NORTHEAST, WEST, EAST, SOUTHWEST, SOUTH, SOUTHEAST };

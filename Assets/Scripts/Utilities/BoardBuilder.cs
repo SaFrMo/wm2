@@ -155,6 +155,23 @@ namespace WhiteMask.Builder {
 			t.text = cell.id;
 		}
 
+		public void ExportToXML(){
+			// Loop through cells and export to XML
+			for (int i = 0; i < gridHeight; i++) {
+				for (int j = 0; j < gridWidth; j++) {
+					float x = (float)j / gridWidth;
+					float y = (float)i / gridHeight;
+
+					int index = i * gridWidth + j;
+					masterCellList [index].x = x;
+					masterCellList [index].y = y;
+					masterCellList [index].width = 1f / (float)gridWidth;
+					masterCellList [index].height = 1f / (float)gridHeight;
+					print (masterCellList [index].CreateSnapshot ());
+				}
+			}
+		}
+
 
 		// Update
 		void Update(){
