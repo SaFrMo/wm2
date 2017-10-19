@@ -13,13 +13,21 @@ namespace WhiteMask {
 	[System.Serializable]
 	public class Cell {
 
-		public enum Direction { NW, N, NE, W, E, SW, S, SE }
+		public const string 
+			NORTHWEST = "NW", 
+			NORTH = "N", 
+			NORTHEAST = "NE", 
+			WEST = "W", 
+			EAST = "E", 
+			SOUTHWEST = "SW", 
+			SOUTH = "S", 
+			SOUTHEAST = "SE";
 
 		public float x = 0;
 		public float y = 0f;
 		public string id = "0";
 		public string name = "Default Cell";
-		public List<Direction> links = new List<Direction> (){ Direction.NW, Direction.N, Direction.NE, Direction.W, Direction.E, Direction.SW, Direction.S, Direction.SE };
+		public List<string> directions = new List<string> (){ NORTHWEST, NORTH, NORTHEAST, WEST, EAST, SOUTHWEST, SOUTH, SOUTHEAST };
 
 		public Cell(){
 

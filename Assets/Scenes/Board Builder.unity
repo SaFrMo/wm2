@@ -498,7 +498,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 160478344}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 442706428}
+        m_MethodName: ToggleDirection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: NE
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &160478344
@@ -891,7 +902,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 387152856}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 442706428}
+        m_MethodName: ToggleDirection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: W
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &387152856
@@ -1079,6 +1101,7 @@ GameObject:
   - component: {fileID: 442706425}
   - component: {fileID: 442706427}
   - component: {fileID: 442706426}
+  - component: {fileID: 442706428}
   m_Layer: 5
   m_Name: Cell Prefab
   m_TagString: Untagged
@@ -1139,6 +1162,33 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 442706424}
+--- !u!114 &442706428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 442706424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4393deef404aa49e2ab182776af9ce14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cell:
+    x: 0
+    y: 0
+    id: 0
+    name: Default Cell
+    directions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  cellInfo: {fileID: 1080429825}
+  directionTogglesWrap: {fileID: 826922994}
 --- !u!1 &462609404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,7 +1379,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 510486833}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 442706428}
+        m_MethodName: ToggleDirection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SE
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &510486833
@@ -2229,7 +2290,7 @@ GameObject:
   - component: {fileID: 826922995}
   - component: {fileID: 826922996}
   m_Layer: 5
-  m_Name: Connector Wrap
+  m_Name: Direction Toggles Wrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2533,7 +2594,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 878582958}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 442706428}
+        m_MethodName: ToggleDirection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SW
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &878582958
@@ -2613,7 +2685,6 @@ GameObject:
   - component: {fileID: 982023539}
   - component: {fileID: 982023542}
   - component: {fileID: 982023541}
-  - component: {fileID: 982023540}
   m_Layer: 5
   m_Name: Dragger
   m_TagString: Untagged
@@ -2639,19 +2710,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.025035858}
   m_SizeDelta: {x: 0, y: -0.049988}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &982023540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 982023538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1ef552aea3f0437d90f25f3e13d0302, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointerOffset: {x: 0, y: 0}
-  builder: {fileID: 1609884417}
 --- !u!114 &982023541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2915,7 +2973,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1032375880}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 442706428}
+        m_MethodName: ToggleDirection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: NW
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1032375880
@@ -3715,7 +3784,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1307527771}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 442706428}
+        m_MethodName: ToggleDirection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: N
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1307527771
@@ -4372,7 +4452,15 @@ MonoBehaviour:
     y: 0
     id: 0
     name: Default Cell
-    links: 0000000001000000020000000300000004000000050000000600000007000000
+    directions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   cellActors: {fileID: 1085185263}
   currentStateId: {fileID: 139951902}
   allBoardStates: {fileID: 1258155591}
@@ -4536,7 +4624,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1648515757}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 442706428}
+        m_MethodName: ToggleDirection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: E
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1648515757
@@ -5312,7 +5411,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1822314613}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 442706428}
+        m_MethodName: ToggleDirection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: S
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1822314613

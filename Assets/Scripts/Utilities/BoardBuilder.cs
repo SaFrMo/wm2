@@ -109,7 +109,7 @@ namespace WhiteMask.Builder {
 					row.GetComponent<MenuRefresher> ().Setup<Cell> (
 						cells,
 						(button, cell) => {
-							button.GetComponentInChildren<Text>().text = "ID: " + cell.id + "\nName: " + cell.name;
+							button.GetComponentInChildren<CellLink>().LinkTo(cell);
 						}
 					);
 				}
@@ -124,12 +124,12 @@ namespace WhiteMask.Builder {
 			);
 
 			// Make sure each cell has a GameObject
-			cellActors.Setup<Cell> (
-				board.cells.ToArray (),
-				(createdObject, originalCell) => {
-
-				}
-			);
+//			cellActors.Setup<Cell> (
+//				board.cells.ToArray (),
+//				(createdObject, originalCell) => {
+//					
+//				}
+//			);
 		}
 
 		private void RefreshStateButton(GameObject button, Board.BoardState boardState){
