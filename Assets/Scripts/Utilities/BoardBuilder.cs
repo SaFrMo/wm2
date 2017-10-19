@@ -11,6 +11,7 @@ namespace WhiteMask.Builder {
 		private Board board;
 		public Board.BoardState currentBoardState;
 		public Cell currentCell;
+		private List<Cell> masterCellList = new List<Cell>();
 
 		void Start(){
 			board = FindObjectOfType<State> ().board;
@@ -61,7 +62,6 @@ namespace WhiteMask.Builder {
 		public MenuRefresher allCells;
 
 		// Grid
-		//public GridLayoutGroup boardGrid;
 		public MenuRefresher boardRows, boardColumns;
 		public Cell[][] displayArray;
 		public int gridWidth = 3, gridHeight = 4;
@@ -91,11 +91,18 @@ namespace WhiteMask.Builder {
 				displayArray [i] = new Cell[gridWidth];
 
 				for (int j = 0; j < gridWidth; j++) {
-					// TODO: Keep running list of cells and populate from there
-					displayArray [i] [j] = new Cell (SaFrMo.GenerateRandomString(), "Cell " + i + j);
+					int index = i * gridWidth + j;
+
+					// create an existing Cell and add to the master list if we need to
+					if (masterCellList.Count <= index) {
+						Cell newCell = new Cell (SaFrMo.GenerateRandomString(), "Cell " + index);
+						masterCellList.Add (newCell);
+					}
+
+					displayArray [i] [j] = masterCellList [index];
+
 				}
 			}
-			print (displayArray);
 			boardRows.Setup<Cell[]> (
 				displayArray,
 				(row, cells) => {
