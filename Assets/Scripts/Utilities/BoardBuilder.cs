@@ -13,6 +13,8 @@ namespace WhiteMask.Builder {
 		public Cell currentCell;
 		public List<Cell> masterCellList = new List<Cell>();
 
+		public Image image;
+
 		// Split-out builders
 		public CellBuilder cellBuilder;
 
@@ -181,6 +183,8 @@ namespace WhiteMask.Builder {
 		// Update
 		void Update(){
 			//board.currentState.id = currentStateId.text;
+
+			//image.enabled = Input.GetKey(KeyCode.Space);
 		}
 	}
 }
