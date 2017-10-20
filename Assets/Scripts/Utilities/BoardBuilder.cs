@@ -11,7 +11,10 @@ namespace WhiteMask.Builder {
 		private Board board;
 		public Board.BoardState currentBoardState;
 		public Cell currentCell;
-		private List<Cell> masterCellList = new List<Cell>();
+		public List<Cell> masterCellList = new List<Cell>();
+
+		// Split-out builders
+		public CellBuilder cellBuilder;
 
 		void Start(){
 			board = FindObjectOfType<State> ().board;
@@ -20,6 +23,9 @@ namespace WhiteMask.Builder {
 			currentBoardState = board.currentState;
 			currentStateId.text = currentBoardState.id;
 			RefreshBuilder ();
+
+			// Other builders
+			cellBuilder.Refresh();
 		}
 
 		public void AddCell(){
@@ -35,7 +41,6 @@ namespace WhiteMask.Builder {
 			board.cells.Add (newCell);
 			RefreshBuilder ();
 			return newCell;
-
 		}
 
 		public void AddState(){

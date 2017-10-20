@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\State\Board\Cell.cs" />
      <Compile Include="Assets\Scripts\State\State.cs" />
      <Compile Include="Assets\Scripts\Utilities\BoardBuilder.cs" />
+     <Compile Include="Assets\Scripts\Utilities\CellBuilder.cs" />
      <Compile Include="Assets\Scripts\Utilities\CellLink.cs" />
      <None Include="Assets\Shaders\_snippets\basic.shader" />
      <None Include="Assets\Resources\Sandbox\sandbox.xml" />

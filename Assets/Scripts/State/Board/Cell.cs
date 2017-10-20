@@ -29,7 +29,12 @@ namespace WhiteMask {
 		public float height = 0;
 		public string id = "0";
 		public string name = "Default Cell";
+
+		// Stats
 		public List<string> directions = new List<string> (){ NORTHWEST, NORTH, NORTHEAST, WEST, EAST, SOUTHWEST, SOUTH, SOUTHEAST };
+		public int health = 100;
+		public int attack = 10;
+		public int worth = 20;
 
 		public Cell(){
 
